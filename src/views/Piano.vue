@@ -1,5 +1,8 @@
 <template>
   <div class="piano-keyboard">
+    <div>
+      <h2>Type some keys to try this playable keyboard!</h2>
+    </div>
     <div
       v-for="noteObject in notes"
       :key="noteObject.note"
