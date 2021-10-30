@@ -2,44 +2,35 @@
   <div id="app">
     <h1>Audio Synthesis using code:</h1>
     <br />
-    <button v-on:click="singleNote()">
+    <button ype="button" class="btn btn-primary btn-lg" v-on:click="singleNote()">
       <h3><b>SINGLE NOTE</b></h3>
     </button>
     <br />
     <br />
     <br />
-    <button v-on:click="pianoChord()">
+    <button type="button" class="btn btn-primary btn-lg" v-on:click="pianoChord()">
       <h3><b>PIANO CHORD</b></h3>
     </button>
     <br />
     <br />
     <br />
-    <button v-on:click="synthScale()">
+    <button ype="button" class="btn btn-primary btn-lg" v-on:click="synthScale()">
       <h3><b>SYNTH SCALE</b></h3>
     </button>
     <br />
     <br />
     <br />
-    <button v-on:click="bassDrop()">
+    <button ype="button" class="btn btn-primary btn-lg" v-on:click="bassDrop()">
       <h3><b>BASS DROP</b></h3>
     </button>
     <br />
     <br />
     <br />
-    <button v-on:click="spookySound()">
+    <button ype="button" class="btn btn-primary btn-lg" v-on:click="spookySound()">
       <h3><b>SPOOKY SOUND</b></h3>
     </button>
   </div>
 </template>
-
-<style>
-body {
-  background-color: #000000;
-}
-h1 {
-  color: #ffffff;
-}
-</style>
 
 <script>
 import * as Tone from "tone";
