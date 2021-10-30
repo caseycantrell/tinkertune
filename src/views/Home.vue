@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <h1>Audio Synthesis using code:</h1>
+    <h1>Welcome to Tinkertune. Tinker away, friend.</h1>
+    <br />
     <br />
     <button ype="button" class="btn btn-primary btn-lg" v-on:click="singleNote()">
       <h3><b>SINGLE NOTE</b></h3>
@@ -29,6 +30,53 @@
     <button ype="button" class="btn btn-primary btn-lg" v-on:click="spookySound()">
       <h3><b>SPOOKY SOUND</b></h3>
     </button>
+    <div class="piano-keyboard">
+      <div
+        v-for="noteObject in notes"
+        :key="noteObject.note"
+        class="white-note"
+        :class="[noteObject.pressed ? 'white-note-pressed' : '']"
+        :style="{ width: whiteNoteWidthSize + '%', background: whiteNoteBackground(noteObject.pressed) }"
+        @mousedown="playNoteMouse(noteObject)"
+        @mouseup="removePressedKeyMouse(noteObject)"
+        @mouseover="playNoteHover(noteObject)"
+        @mouseleave="removePressedKey(noteObject)"
+      >
+        <div
+          v-if="noteObject.blackNote"
+          class="black-note"
+          :class="[noteObject.blackNote.pressed ? 'black-note-pressed' : '']"
+          :style="{ background: blackNoteBackground(noteObject.blackNote.pressed) }"
+          @mousedown.stop="playNoteMouse(noteObject.blackNote)"
+          @mouseup.stop="removePressedKeyMouse(noteObject.blackNote)"
+          @mouseover.stop="playNoteHover(noteObject.blackNote)"
+          @mouseleave.stop="removePressedKey(noteObject.blackNote)"
+        >
+          <div class="key-group unselectable">
+            <div v-if="showKeys" class="key-input">
+              {{ noteObject.blackNote.key }}
+            </div>
+
+            <div
+              v-if="showNotes"
+              :class="['key-text', 'key-text-on-black-note', indianNotes ? '' : 'key-text-vertical']"
+            >
+              {{ noteObject.blackNote.label }}
+            </div>
+          </div>
+        </div>
+
+        <div class="key-group unselectable">
+          <div v-if="showKeys" class="key-input">
+            {{ noteObject.key }}
+          </div>
+
+          <div v-if="showNotes" class="key-text">
+            {{ noteObject.label }}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -36,9 +84,11 @@
 import * as Tone from "tone";
 
 export default {
+  name: "App",
   data: function () {
     return {};
   },
+  components: {},
   created: function () {},
   methods: {
     singleNote: function () {
