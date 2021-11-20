@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Piano from "../views/Piano.vue";
+import DrumMachine from "../views/DrumMachine.vue";
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,11 @@ const routes = [
     path: "/piano",
     name: "Piano",
     component: Piano,
+  },
+  {
+    path: "/drummachine",
+    name: "Drum Machine",
+    component: DrumMachine,
   },
 ];
 

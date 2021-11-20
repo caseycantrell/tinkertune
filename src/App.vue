@@ -4,6 +4,8 @@
       <router-link to="/">Home</router-link>
       |
       <router-link to="/piano">Piano</router-link>
+      |
+      <router-link to="/drummachine">Drum Machine</router-link>
     </div>
     <router-view />
   </div>
